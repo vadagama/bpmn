@@ -1,17 +1,40 @@
+<!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
 
 <body>
-    <div id="app">
-        <div class="product-image">
-            <img src="" />
+    <section class="section">
+        <div id="app" class="container">
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-128x128 is-1by1" >
+                            <img v-bind:src="img" v-bind:alt="img">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="product-info">
+                            <p class="title is-3">{{ product }}</p>
+                            <p class="subtitle is-5">{{description}}</p>
+                            <p v-if="inStock">In stock</p>
+                            <p v-else>Out of stock</p>
+                        </div>
+
+                    </div>
+
+            </div>
+            </article>
         </div>
-        <div class="product-info">
-            <h1>{{ product }}</h1>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    </section>
+    <script src="index.js"></script>
 </body>
 
 </html>
