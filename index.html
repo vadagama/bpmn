@@ -19,7 +19,7 @@
                 <article class="media">
                     <div class="media-left">
                         <figure class="image is-128x128 is-1by1">
-                            <img v-bind:src="img" v-bind:alt="img">
+                            <img v-bind:src="image" v-bind:alt="image">
                         </figure>
                     </div>
                     <div class="media-content">
@@ -36,9 +36,19 @@
                                     <li v-for="detail in details">{{ detail }}</li>
                                 </ul>
                             </div>
-                            <div v-for="variant in variants" :key="variant.variantId">
-                                <p>{{ variant.variantColor }}</p>
+                            <div v-for="variant in variants" 
+                            :key="variant.variantId"
+                            class="tag is-light"
+                            :style="{backgroundColor: variant.variantColor}"
+                            @mouseover="updateProduct(variant.variantImage)">
+                            <p>{{variant.variantColor}}</p>
                             </div>
+                            <i class="button" @click="addToCart" :disabled="!inStock">Add to cart</i>
+                            <i class="button" @click="removeFromCart">Remove from cart</i>
+                            <div class="cart">
+                                <p>Cart({{cart}})</p>
+                            </div>
+
                         </div>
 
                     </div>
